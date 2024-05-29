@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
+import { serverUrl } from "./utils/appConstants";
 
 const stripePromise = loadStripe("pk_test_51PKCjmAOdkpgDOQiBNmLk8Ymd9YrUDguHhPUGTe9aJvJb0bnzo10s9c8O0YSUybZmMOJfqJleTPUG3Zw9Ums3awa005tQSAl0S");
 
@@ -9,7 +10,7 @@ const Payment = () => {
 
   const createCheckoutSession = async () => {
     const response = await fetch(
-      "http://localhost:4000/create-checkout-session",
+        `${serverUrl}/create-checkout-session`,
       {
         method: "POST",
         headers: {
